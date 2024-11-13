@@ -1,0 +1,134 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <script>
+    /*function sq(x)
+    {
+        var sr=x**2;
+        return sr;
+    }
+  for(var i=1;i<+10;i++)
+  {
+    var square=sq(i);
+    console.log(square);
+  }
+  var fun2=function(){
+    console.log("I am anonymous function");
+  }
+  console.log(fun2);
+  (function(){
+    console.log("I am IIFE function");
+  })();
+  var arr=()=>{
+    console.log("I am Arrow Function");
+  }
+  console.log(arr);
+   //spread operator
+   let arr1=[3,4,5];
+   let arr2=[1,2,...arr1,6,7];
+   console.log(arr2)
+   //template literal
+   let fruit="apple";
+   let bird="peacock";
+   let statement=`i love ${fruit} and ${bird}`
+   console.log(statement);
+   //array methods
+   let num=[1,2,3,4,5,6];
+   console.log(num.length);
+   num.push(7);
+   console.log(num);
+   let inde=num. indexOf (4);
+   console.log(inde);
+   num. forEach((a)=>{
+    console.log(a*2);
+   })
+   let newnum=num.map((num)=>{return(num*3);})
+   console.log(newnum);
+   //filter
+   let findodd=num.find((n)=>n%2==1);
+   console.log(findodd);
+
+   let index=num.findIndex(n=>n==7)
+   console.log(index);
+
+   let some=num.some(n=>n!=21)
+   console.log(some);
+
+   let array1=[11,22,33];
+   let array2=[44,55,66];
+   let concatanate=array1.concat(array2)
+   console.log(concatanate);
+
+   let total=num.reduce((acc,curr)=>(acc+curr))
+   console.log(total)
+   //callstack
+   console.log("1.hi");
+   setTimeout(()=>{
+    console.log("2.hi");
+   },0)
+    setTimeout(()=>{
+    console.log("3.hi");
+   },2000)  
+   console.log("4.hi");
+    //callback
+    function calage(year) {
+      setTimeout(() => {
+        let age = 2024 - year;
+        return age
+      }, 2000)
+    }
+    let birthyear = calage(2002);
+    console.log(birthyear)
+
+    //callback fun
+    function calculateage(year, callback) {
+      setTimeout(() => {
+        let age = 2024 - year
+        callback(age)
+      }, 2000)
+    }
+
+    function canvote(age, callback) {
+      setTimeout(() => {
+        if (age > 18) { callback(true) }
+        else { callback(false) }
+      }, 3000)
+    }
+    function providevoterId(eligible) {
+      setTimeout(() => {
+        if (eligible == true) { console.log("Here is your voter Id") }
+        else {console.log( "Sorry..") }
+      }, 4000)
+    }
+
+    calculateage(2017, function (age) {
+      console.log(age)
+
+      canvote(age, function (eligible) {
+        console.log(eligible)
+        providevoterId(eligible)
+      })
+    })
+
+    console.log("otherlines")*/
+
+    //promise
+    function personage(year) {
+      let myPromise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          let age = 2024 - year
+          resolve(age)
+        })
+      })
+      return myPromise
+    }
+    personage(2008 ).then(function (resolvedData) { console.log(resolvedData) }).catch(function (rejectedData) { console.log(rejectedData) })
+  </script>
+
+</body>
+
+</html>

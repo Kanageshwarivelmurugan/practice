@@ -1,0 +1,153 @@
+  <html>
+  <head> </head>
+  <body>
+    <script>
+      var a = 5;
+      console.log(a);
+      var b = "sakthi";
+      var c = b.split(" ");
+      console.log(c);
+      var d = c.join("");
+      console.log(d);
+      var e = typeof d;
+      console.log(e);
+      console.log(typeof c);
+      //string,array
+      var f = [
+        23,
+        54.3,
+        "hello",
+        false,
+        null,
+        [1, 2, 3],
+        { name: "kanaga", age: 20 },
+      ];
+      console.log(f[0]);
+      console.log(f[2]);
+      console.log(f[5][2]);
+      console.log(f[6].age);
+      //for loop
+      var g = [1, 2, 3, 4, 5];
+      var h = [];
+      var j = [];
+      for (var i = 0; i < g.length; i++) {
+        console.log(h.push(h[i]) * 5);
+      }
+      for (var i = 1; i <= g.length; i++) {
+        console.log(j.push(g[i - 1] * 2));
+      }
+      console.log(j);
+
+      //call stack
+      function add(a, b) {
+        setTimeout(() => {
+          let ans = a + b;
+          return ans;
+        }, 1000);
+      }
+
+      let answer = add(7, 6);
+      console.log(answer);
+      //callback
+      function calage(year, callback) {
+        setTimeout(() => {
+          let age = 2024 - year;
+          callback(age);
+        }, 2000);
+      }
+      calage(1997, function (birthyear) {
+        console.log(birthyear);
+      });
+
+      // call back hell
+      function calculateage(year, callback) {
+        setTimeout(() => {
+          let age = 2024 - year;
+          callback(age);
+        }, 2000);
+      }
+
+      function canvote(agenow, cb) {
+        setTimeout(() => {
+          if (agenow > 18) {
+            cb(true);
+          } else {
+            cb(false);
+          }
+        }, 3000);
+      }
+
+      function provideid(eligible, cb2) {
+        setTimeout(() => {
+          if (eligible == true) {
+            cb2("this is your id");
+          } else {
+            cb2("sorry ....");
+          }
+        }, 4000);
+      }
+
+      calculateage(1997, function (agenow) {
+        console.log(agenow);
+        canvote(agenow, function (eligible) {
+          console.log(eligible);
+
+          provideid(eligible, function (id) {
+            console.log(id);
+          });
+        });
+      });
+ //promise
+      function calage_eligible(year){
+        let mypromise= new Promise (function(resolve,reject){
+            setTimeout(()=>{
+                let age=2024-year;
+                console.log(age);
+                if(age>18){
+                    resolve("Eligible")
+                }
+                else{
+                    reject("Sorry")
+                }
+            },2000)
+        } )
+        return mypromise
+      }
+      calage_eligible(2002).then(function (resolveddata){
+        console.log(resolveddata)
+      }).catch(function (rejecteddata){
+        console.log(rejecteddata)})
+
+//promise chain
+          fetch("https://restcountries.com/v3.1/all",{
+            method:"GET"
+          })
+          .then((data)=>{let res= data.json()
+          return res;})
+          .then((result)=>{
+            result.forEach(element=>{
+            let flag = document.createElement("img")
+            flag.src=element.flags.png
+            document.body.appendChild(flag)
+          });
+        })
+          .catch((err)=>{
+            console.log(err)
+          })
+ //async,await
+ async function foo(){
+  try{
+    let data=await fetch("https://restcountries.com/v3.1/all")
+  let res=await data.json()
+  console.log(res)
+}
+  catch(error){
+    console.log(error)
+  }
+
+ }
+foo()                 
+    </script>
+  </body>
+</html>
+  
